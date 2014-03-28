@@ -1032,7 +1032,7 @@ namespace TinyIoC
 #if APPDOMAIN_GETASSEMBLIES
             AutoRegisterInternal(AppDomain.CurrentDomain.GetAssemblies().Where(a => !IsIgnoredAssembly(a)), DuplicateImplementationActions.RegisterSingle, null);
 #else
-            AutoRegisterInternal(new Assembly[] {this.GetType().Assembly()}, true, null);
+            AutoRegisterInternal(new Assembly[] { this.GetType().Assembly() }, DuplicateImplementationActions.RegisterSingle, null);
 #endif
         }
 
@@ -1049,7 +1049,7 @@ namespace TinyIoC
 #if APPDOMAIN_GETASSEMBLIES
             AutoRegisterInternal(AppDomain.CurrentDomain.GetAssemblies().Where(a => !IsIgnoredAssembly(a)), DuplicateImplementationActions.RegisterSingle, registrationPredicate);
 #else
-            AutoRegisterInternal(new Assembly[] { this.GetType().Assembly()}, true, registrationPredicate);
+            AutoRegisterInternal(new Assembly[] { this.GetType().Assembly() }, DuplicateImplementationActions.RegisterSingle, registrationPredicate);
 #endif
         }
 
@@ -1063,7 +1063,7 @@ namespace TinyIoC
 #if APPDOMAIN_GETASSEMBLIES
             AutoRegisterInternal(AppDomain.CurrentDomain.GetAssemblies().Where(a => !IsIgnoredAssembly(a)), duplicateAction, null);
 #else
-            AutoRegisterInternal(new Assembly[] { this.GetType().Assembly() }, ignoreDuplicateImplementations, null);
+            AutoRegisterInternal(new Assembly[] { this.GetType().Assembly() }, duplicateAction, null);
 #endif
         }
 
@@ -1079,7 +1079,7 @@ namespace TinyIoC
 #if APPDOMAIN_GETASSEMBLIES
             AutoRegisterInternal(AppDomain.CurrentDomain.GetAssemblies().Where(a => !IsIgnoredAssembly(a)), duplicateAction, registrationPredicate);
 #else
-            AutoRegisterInternal(new Assembly[] { this.GetType().Assembly() }, ignoreDuplicateImplementations, registrationPredicate);
+            AutoRegisterInternal(new Assembly[] { this.GetType().Assembly() }, duplicateAction, registrationPredicate);
 #endif
         }
 
